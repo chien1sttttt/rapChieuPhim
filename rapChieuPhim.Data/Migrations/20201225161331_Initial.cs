@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace rapChieuPhim.Data.Migrations
 {
-    public partial class seeddata : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -223,7 +223,7 @@ namespace rapChieuPhim.Data.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    OrderDate = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 12, 25, 16, 1, 28, 294, DateTimeKind.Local).AddTicks(5113)),
+                    OrderDate = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 12, 25, 23, 13, 30, 499, DateTimeKind.Local).AddTicks(2529)),
                     UserId = table.Column<Guid>(nullable: false),
                     ShipName = table.Column<string>(maxLength: 200, nullable: false),
                     ShipAddress = table.Column<string>(maxLength: 200, nullable: false),
@@ -329,6 +329,31 @@ namespace rapChieuPhim.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "ProductImages",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ProductId = table.Column<int>(nullable: false),
+                    ImagePath = table.Column<string>(nullable: true),
+                    Caption = table.Column<string>(nullable: true),
+                    IsDefault = table.Column<bool>(nullable: false),
+                    DateCreated = table.Column<DateTime>(nullable: false),
+                    SortOrder = table.Column<int>(nullable: false),
+                    FileSize = table.Column<long>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ProductImages", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_ProductImages_Products_ProductId",
+                        column: x => x.ProductId,
+                        principalTable: "Products",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "ProductInCategories",
                 columns: table => new
                 {
@@ -421,6 +446,21 @@ namespace rapChieuPhim.Data.Migrations
                 });
 
             migrationBuilder.InsertData(
+                table: "AppRoles",
+                columns: new[] { "Id", "ConcurrencyStamp", "Description", "Name", "NormalizedName" },
+                values: new object[] { new Guid("695025d4-e840-421e-ab3f-2fc2e240da61"), "a1042bc6-43d2-4b6d-85dc-2ba7770c1309", "Administrator role", "admin", "admin" });
+
+            migrationBuilder.InsertData(
+                table: "AppUserRoles",
+                columns: new[] { "UserId", "RoleId" },
+                values: new object[] { new Guid("5edfca40-c950-4820-883f-310bd37edb54"), new Guid("695025d4-e840-421e-ab3f-2fc2e240da61") });
+
+            migrationBuilder.InsertData(
+                table: "AppUsers",
+                columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Dob", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
+                values: new object[] { new Guid("5edfca40-c950-4820-883f-310bd37edb54"), 0, "a4e90ca5-afa6-4cb4-abf1-1c1af6f18891", new DateTime(2020, 12, 28, 0, 0, 0, 0, DateTimeKind.Unspecified), "chien1sttttt@gmail.com", true, "Chien", "Van", false, null, "chien1sttttt@gmail.com", "chien", "AQAAAAEAACcQAAAAEEJ6l5MuJ+Ba3jEA3OJ34l3uuFcb84QQaYQYlqciQQ8MzDClQk3ZG4TSvgTAPNZ3aw==", null, false, "", false, "chien" });
+
+            migrationBuilder.InsertData(
                 table: "Categories",
                 columns: new[] { "Id", "IsShowOnHome", "ParentId", "SortOrder", "Status" },
                 values: new object[,]
@@ -442,7 +482,7 @@ namespace rapChieuPhim.Data.Migrations
             migrationBuilder.InsertData(
                 table: "Products",
                 columns: new[] { "Id", "DateCreated", "OriginalPrice", "Price", "SeoAlias" },
-                values: new object[] { 1, new DateTime(2020, 12, 25, 16, 1, 28, 340, DateTimeKind.Local).AddTicks(2274), 100000m, 200000m, null });
+                values: new object[] { 1, new DateTime(2020, 12, 25, 23, 13, 30, 545, DateTimeKind.Local).AddTicks(2073), 100000m, 200000m, null });
 
             migrationBuilder.InsertData(
                 table: "CategoryTranslations",
@@ -499,6 +539,11 @@ namespace rapChieuPhim.Data.Migrations
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_ProductImages_ProductId",
+                table: "ProductImages",
+                column: "ProductId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_ProductInCategories_ProductId",
                 table: "ProductInCategories",
                 column: "ProductId");
@@ -553,6 +598,9 @@ namespace rapChieuPhim.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "OrderDetails");
+
+            migrationBuilder.DropTable(
+                name: "ProductImages");
 
             migrationBuilder.DropTable(
                 name: "ProductInCategories");

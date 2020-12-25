@@ -10,8 +10,8 @@ using rapChieuPhim.Data.EF;
 namespace rapChieuPhim.Data.Migrations
 {
     [DbContext(typeof(rapChieuPhimDbContext))]
-    [Migration("20201225090142_aspNetCoreIndentityDatabase")]
-    partial class aspNetCoreIndentityDatabase
+    [Migration("20201225161432_seedidentityuser")]
+    partial class seedidentityuser
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -94,6 +94,13 @@ namespace rapChieuPhim.Data.Migrations
                     b.HasKey("UserId", "RoleId");
 
                     b.ToTable("AppUserRoles");
+
+                    b.HasData(
+                        new
+                        {
+                            UserId = new Guid("5edfca40-c950-4820-883f-310bd37edb54"),
+                            RoleId = new Guid("695025d4-e840-421e-ab3f-2fc2e240da61")
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<System.Guid>", b =>
@@ -116,7 +123,7 @@ namespace rapChieuPhim.Data.Migrations
                     b.ToTable("AppUserTokens");
                 });
 
-            modelBuilder.Entity("eShopSolution.Data.Entities.AppConfig", b =>
+            modelBuilder.Entity("rapChieuPhim.Data.Entities.AppConfig", b =>
                 {
                     b.Property<string>("Key")
                         .HasColumnType("nvarchar(450)");
@@ -147,7 +154,129 @@ namespace rapChieuPhim.Data.Migrations
                         });
                 });
 
-            modelBuilder.Entity("eShopSolution.Data.Entities.Cart", b =>
+            modelBuilder.Entity("rapChieuPhim.Data.Entities.AppRole", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(200)")
+                        .HasMaxLength(200);
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NormalizedName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("AppRoles");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("695025d4-e840-421e-ab3f-2fc2e240da61"),
+                            ConcurrencyStamp = "6bf28a09-d29d-46c6-956d-e44a877beede",
+                            Description = "Administrator role",
+                            Name = "admin",
+                            NormalizedName = "admin"
+                        });
+                });
+
+            modelBuilder.Entity("rapChieuPhim.Data.Entities.AppUser", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("AccessFailedCount")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Dob")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("EmailConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(200)")
+                        .HasMaxLength(200);
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(200)")
+                        .HasMaxLength(200);
+
+                    b.Property<bool>("LockoutEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTimeOffset?>("LockoutEnd")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<string>("NormalizedEmail")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NormalizedUserName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PasswordHash")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("PhoneNumberConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("SecurityStamp")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("TwoFactorEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("UserName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("AppUsers");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("5edfca40-c950-4820-883f-310bd37edb54"),
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "2d139a62-1a8f-405e-a212-5893c1e3a966",
+                            Dob = new DateTime(2020, 12, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "chien1sttttt@gmail.com",
+                            EmailConfirmed = true,
+                            FirstName = "Chien",
+                            LastName = "Van",
+                            LockoutEnabled = false,
+                            NormalizedEmail = "chien1sttttt@gmail.com",
+                            NormalizedUserName = "chien",
+                            PasswordHash = "AQAAAAEAACcQAAAAEF8qFf/V5xEHKh4RFn8kRibSyRzDkVOieXw68O5YRLzoENbb0/n2tB464cudKmn4fw==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "",
+                            TwoFactorEnabled = false,
+                            UserName = "chien"
+                        });
+                });
+
+            modelBuilder.Entity("rapChieuPhim.Data.Entities.Cart", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -180,7 +309,7 @@ namespace rapChieuPhim.Data.Migrations
                     b.ToTable("Carts");
                 });
 
-            modelBuilder.Entity("eShopSolution.Data.Entities.Category", b =>
+            modelBuilder.Entity("rapChieuPhim.Data.Entities.Category", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -231,7 +360,7 @@ namespace rapChieuPhim.Data.Migrations
                         });
                 });
 
-            modelBuilder.Entity("eShopSolution.Data.Entities.CategoryTranslation", b =>
+            modelBuilder.Entity("rapChieuPhim.Data.Entities.CategoryTranslation", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -308,7 +437,7 @@ namespace rapChieuPhim.Data.Migrations
                         });
                 });
 
-            modelBuilder.Entity("eShopSolution.Data.Entities.Contact", b =>
+            modelBuilder.Entity("rapChieuPhim.Data.Entities.Contact", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -344,7 +473,7 @@ namespace rapChieuPhim.Data.Migrations
                     b.ToTable("Contacts");
                 });
 
-            modelBuilder.Entity("eShopSolution.Data.Entities.Language", b =>
+            modelBuilder.Entity("rapChieuPhim.Data.Entities.Language", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("varchar(5)")
@@ -378,7 +507,7 @@ namespace rapChieuPhim.Data.Migrations
                         });
                 });
 
-            modelBuilder.Entity("eShopSolution.Data.Entities.Order", b =>
+            modelBuilder.Entity("rapChieuPhim.Data.Entities.Order", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -390,7 +519,7 @@ namespace rapChieuPhim.Data.Migrations
                     b.Property<DateTime>("OrderDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2020, 12, 25, 16, 1, 41, 345, DateTimeKind.Local).AddTicks(2090));
+                        .HasDefaultValue(new DateTime(2020, 12, 25, 23, 14, 30, 751, DateTimeKind.Local).AddTicks(3970));
 
                     b.Property<string>("ShipAddress")
                         .IsRequired()
@@ -426,7 +555,7 @@ namespace rapChieuPhim.Data.Migrations
                     b.ToTable("Orders");
                 });
 
-            modelBuilder.Entity("eShopSolution.Data.Entities.OrderDetail", b =>
+            modelBuilder.Entity("rapChieuPhim.Data.Entities.OrderDetail", b =>
                 {
                     b.Property<int>("OrderId")
                         .HasColumnType("int");
@@ -447,7 +576,7 @@ namespace rapChieuPhim.Data.Migrations
                     b.ToTable("OrderDetails");
                 });
 
-            modelBuilder.Entity("eShopSolution.Data.Entities.Product", b =>
+            modelBuilder.Entity("rapChieuPhim.Data.Entities.Product", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -486,7 +615,7 @@ namespace rapChieuPhim.Data.Migrations
                         new
                         {
                             Id = 1,
-                            DateCreated = new DateTime(2020, 12, 25, 16, 1, 41, 392, DateTimeKind.Local).AddTicks(8797),
+                            DateCreated = new DateTime(2020, 12, 25, 23, 14, 30, 789, DateTimeKind.Local).AddTicks(7165),
                             OriginalPrice = 100000m,
                             Price = 200000m,
                             Stock = 0,
@@ -494,7 +623,42 @@ namespace rapChieuPhim.Data.Migrations
                         });
                 });
 
-            modelBuilder.Entity("eShopSolution.Data.Entities.ProductInCategory", b =>
+            modelBuilder.Entity("rapChieuPhim.Data.Entities.ProductImage", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Caption")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<long>("FileSize")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("ImagePath")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsDefault")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SortOrder")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("ProductImages");
+                });
+
+            modelBuilder.Entity("rapChieuPhim.Data.Entities.ProductInCategory", b =>
                 {
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
@@ -516,7 +680,7 @@ namespace rapChieuPhim.Data.Migrations
                         });
                 });
 
-            modelBuilder.Entity("eShopSolution.Data.Entities.ProductTranslation", b =>
+            modelBuilder.Entity("rapChieuPhim.Data.Entities.ProductTranslation", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -592,7 +756,7 @@ namespace rapChieuPhim.Data.Migrations
                         });
                 });
 
-            modelBuilder.Entity("eShopSolution.Data.Entities.Promotion", b =>
+            modelBuilder.Entity("rapChieuPhim.Data.Entities.Promotion", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -634,7 +798,7 @@ namespace rapChieuPhim.Data.Migrations
                     b.ToTable("Promotions");
                 });
 
-            modelBuilder.Entity("eShopSolution.Data.Entities.Transaction", b =>
+            modelBuilder.Entity("rapChieuPhim.Data.Entities.Transaction", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -677,100 +841,9 @@ namespace rapChieuPhim.Data.Migrations
                     b.ToTable("Transactions");
                 });
 
-            modelBuilder.Entity("rapChieuPhim.Data.Entities.AppRole", b =>
+            modelBuilder.Entity("rapChieuPhim.Data.Entities.Cart", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("ConcurrencyStamp")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(200)")
-                        .HasMaxLength(200);
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("NormalizedName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("AppRoles");
-                });
-
-            modelBuilder.Entity("rapChieuPhim.Data.Entities.AppUser", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<int>("AccessFailedCount")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ConcurrencyStamp")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("Dob")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("EmailConfirmed")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("FirstName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(200)")
-                        .HasMaxLength(200);
-
-                    b.Property<string>("LastName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(200)")
-                        .HasMaxLength(200);
-
-                    b.Property<bool>("LockoutEnabled")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTimeOffset?>("LockoutEnd")
-                        .HasColumnType("datetimeoffset");
-
-                    b.Property<string>("NormalizedEmail")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("NormalizedUserName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PasswordHash")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PhoneNumber")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("PhoneNumberConfirmed")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("SecurityStamp")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("TwoFactorEnabled")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("UserName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("AppUsers");
-                });
-
-            modelBuilder.Entity("eShopSolution.Data.Entities.Cart", b =>
-                {
-                    b.HasOne("eShopSolution.Data.Entities.Product", "Product")
+                    b.HasOne("rapChieuPhim.Data.Entities.Product", "Product")
                         .WithMany("Carts")
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -783,22 +856,22 @@ namespace rapChieuPhim.Data.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("eShopSolution.Data.Entities.CategoryTranslation", b =>
+            modelBuilder.Entity("rapChieuPhim.Data.Entities.CategoryTranslation", b =>
                 {
-                    b.HasOne("eShopSolution.Data.Entities.Category", "Category")
+                    b.HasOne("rapChieuPhim.Data.Entities.Category", "Category")
                         .WithMany("CategoryTranslations")
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("eShopSolution.Data.Entities.Language", "Language")
+                    b.HasOne("rapChieuPhim.Data.Entities.Language", "Language")
                         .WithMany("CategoryTranslations")
                         .HasForeignKey("LanguageId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("eShopSolution.Data.Entities.Order", b =>
+            modelBuilder.Entity("rapChieuPhim.Data.Entities.Order", b =>
                 {
                     b.HasOne("rapChieuPhim.Data.Entities.AppUser", "AppUser")
                         .WithMany("Orders")
@@ -807,52 +880,61 @@ namespace rapChieuPhim.Data.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("eShopSolution.Data.Entities.OrderDetail", b =>
+            modelBuilder.Entity("rapChieuPhim.Data.Entities.OrderDetail", b =>
                 {
-                    b.HasOne("eShopSolution.Data.Entities.Order", "Order")
+                    b.HasOne("rapChieuPhim.Data.Entities.Order", "Order")
                         .WithMany("OrderDetails")
                         .HasForeignKey("OrderId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("eShopSolution.Data.Entities.Product", "Product")
+                    b.HasOne("rapChieuPhim.Data.Entities.Product", "Product")
                         .WithMany("OrderDetails")
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("eShopSolution.Data.Entities.ProductInCategory", b =>
+            modelBuilder.Entity("rapChieuPhim.Data.Entities.ProductImage", b =>
                 {
-                    b.HasOne("eShopSolution.Data.Entities.Category", "Category")
+                    b.HasOne("rapChieuPhim.Data.Entities.Product", "Product")
+                        .WithMany("ProductImages")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("rapChieuPhim.Data.Entities.ProductInCategory", b =>
+                {
+                    b.HasOne("rapChieuPhim.Data.Entities.Category", "Category")
                         .WithMany("ProductInCategories")
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("eShopSolution.Data.Entities.Product", "Product")
+                    b.HasOne("rapChieuPhim.Data.Entities.Product", "Product")
                         .WithMany("ProductInCategories")
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("eShopSolution.Data.Entities.ProductTranslation", b =>
+            modelBuilder.Entity("rapChieuPhim.Data.Entities.ProductTranslation", b =>
                 {
-                    b.HasOne("eShopSolution.Data.Entities.Language", "Language")
+                    b.HasOne("rapChieuPhim.Data.Entities.Language", "Language")
                         .WithMany("ProductTranslations")
                         .HasForeignKey("LanguageId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("eShopSolution.Data.Entities.Product", "Product")
+                    b.HasOne("rapChieuPhim.Data.Entities.Product", "Product")
                         .WithMany("ProductTranslations")
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("eShopSolution.Data.Entities.Transaction", b =>
+            modelBuilder.Entity("rapChieuPhim.Data.Entities.Transaction", b =>
                 {
                     b.HasOne("rapChieuPhim.Data.Entities.AppUser", "AppUser")
                         .WithMany("Transactions")
