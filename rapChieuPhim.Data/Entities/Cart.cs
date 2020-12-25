@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace eShopSolution.Data.Entities
+namespace rapChieuPhim.Data.Entities
 {
     public class Cart
     {

@@ -1,10 +1,10 @@
-﻿using eShopSolution.Data.Enums;
+﻿using rapChieuPhim.Data.Enums;
 using rapChieuPhim.Data.Entities;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace eShopSolution.Data.Entities
+namespace rapChieuPhim.Data.Entities
 {
    public class Order
     {

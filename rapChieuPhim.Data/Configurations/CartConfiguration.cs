@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace eShopSolution.Data.Configurations
+namespace rapChieuPhim.Data.Configurations
 {
     public class CartConfiguration : IEntityTypeConfiguration<Cart>
     {

@@ -1,4 +1,4 @@
-﻿using eShopSolution.Data.Entities;
+﻿using rapChieuPhim.Data.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using rapChieuPhim.Data.Entities;
@@ -6,7 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace eShopSolution.Data.Configurations
+namespace rapChieuPhim.Data.Configurations
 {
     public class AppRoleConfiguration : IEntityTypeConfiguration<AppRole>
     {

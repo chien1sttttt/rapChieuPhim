@@ -1,12 +1,12 @@
-﻿using eShopSolution.Data.Entities;
-using eShopSolution.Data.Enums;
+﻿using rapChieuPhim.Data.Entities;
+using rapChieuPhim.Data.Enums;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace eShopSolution.Data.Configurations
+namespace rapChieuPhim.Data.Configurations
 {
     public class CategoryConfiguration : IEntityTypeConfiguration<Category>
     {

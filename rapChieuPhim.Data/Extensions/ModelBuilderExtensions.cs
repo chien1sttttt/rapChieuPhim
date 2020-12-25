@@ -1,8 +1,7 @@
-﻿using eShopSolution.Data.Entities;
-using eShopSolution.Data.Enums;
+﻿using rapChieuPhim.Data.Entities;
+using rapChieuPhim.Data.Enums;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using rapChieuPhim.Data.Entities;
 using System;
 using System.Collections.Generic;
 using System.Text;

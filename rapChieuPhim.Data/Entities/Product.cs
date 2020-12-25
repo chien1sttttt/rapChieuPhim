@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
-namespace eShopSolution.Data.Entities
+namespace rapChieuPhim.Data.Entities
 {
     public class Product
     {
