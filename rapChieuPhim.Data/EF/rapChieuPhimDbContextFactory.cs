@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
-namespace eShopSolution.Data.EF
+namespace rapChieuPhim.Data.EF
 {
     public class rapChieuPhimDbContextFactory : IDesignTimeDbContextFactory<rapChieuPhimDbContext>
     {
