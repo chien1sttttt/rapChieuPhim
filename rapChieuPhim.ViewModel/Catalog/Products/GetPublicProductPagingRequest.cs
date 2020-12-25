@@ -6,7 +6,7 @@ using System.Text;
 namespace rapChieuPhim.ViewModels.Catalog.Products
 {
     public class GetPublicProductPagingRequest : PagingRequestBase
-    {
+    { 
         public int? CategoryId { get; set; }
     }
 }

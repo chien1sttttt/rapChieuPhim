@@ -1,22 +1,22 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-	  <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.0.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="5.0.0" />
-    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="5.0.0" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <ProjectReference Include="..\rapChieuPhim.Application\rapChieuPhim.Application.csproj" />
     <ProjectReference Include="..\rapChieuPhim.Data\rapChieuPhim.Data.csproj" />
     <ProjectReference Include="..\rapChieuPhim.Utilities\rapChieuPhim.Utilities.csproj" />
     <ProjectReference Include="..\rapChieuPhim.ViewModel\rapChieuPhim.ViewModels.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\user-content\" />
   </ItemGroup>
 
 </Project>

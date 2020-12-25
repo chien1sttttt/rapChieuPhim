@@ -9,14 +9,22 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "rapChieuPhim.Data", "rapChi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "rapChieuPhim.Application", "rapChieuPhim.Application\rapChieuPhim.Application.csproj", "{01BAE58B-9BB4-4455-B58D-BEEB7A06E937}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{431BD0C5-419B-40A1-9F38-1D094DA9E0D0}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0.Solution Items", "0.Solution Items", "{431BD0C5-419B-40A1-9F38-1D094DA9E0D0}"
 	ProjectSection(SolutionItems) = preProject
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "rapChieuPhim.ViewModels", "rapChieuPhim.ViewModel\rapChieuPhim.ViewModels.csproj", "{F2357BFD-D54E-4DAE-8AFF-407FCA9D275F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "rapChieuPhim.ViewModels", "rapChieuPhim.ViewModel\rapChieuPhim.ViewModels.csproj", "{F2357BFD-D54E-4DAE-8AFF-407FCA9D275F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "rapChieuPhim.Utilities", "rapChieuPhim.Utilities\rapChieuPhim.Utilities.csproj", "{3B3135C1-4A51-446D-BD55-E993C3A38165}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "rapChieuPhim.Utilities", "rapChieuPhim.Utilities\rapChieuPhim.Utilities.csproj", "{3B3135C1-4A51-446D-BD55-E993C3A38165}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "rapChieuPhim.BackendApi", "rapChieuPhim.BackendApi\rapChieuPhim.BackendApi.csproj", "{34E55F5D-B29A-445F-83D2-8D263A9EDE19}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.Infrastructure", "1.Infrastructure", "{FABE5C9B-AA18-422E-AEAF-0556747CF3E7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2.Domain", "2.Domain", "{0EB6292B-392E-4134-A181-823621E1B38F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.Hosts", "3.Hosts", "{DFE3C398-3195-4C99-8198-A98F6EEEAAAA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -44,9 +52,21 @@ Global
 		{3B3135C1-4A51-446D-BD55-E993C3A38165}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3B3135C1-4A51-446D-BD55-E993C3A38165}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3B3135C1-4A51-446D-BD55-E993C3A38165}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34E55F5D-B29A-445F-83D2-8D263A9EDE19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34E55F5D-B29A-445F-83D2-8D263A9EDE19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34E55F5D-B29A-445F-83D2-8D263A9EDE19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34E55F5D-B29A-445F-83D2-8D263A9EDE19}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0E0181BE-4DDE-4A7D-90DC-12B92B38C3F0} = {DFE3C398-3195-4C99-8198-A98F6EEEAAAA}
+		{C7454160-45EC-42BC-B719-CD64076517F9} = {0EB6292B-392E-4134-A181-823621E1B38F}
+		{01BAE58B-9BB4-4455-B58D-BEEB7A06E937} = {0EB6292B-392E-4134-A181-823621E1B38F}
+		{F2357BFD-D54E-4DAE-8AFF-407FCA9D275F} = {FABE5C9B-AA18-422E-AEAF-0556747CF3E7}
+		{3B3135C1-4A51-446D-BD55-E993C3A38165} = {FABE5C9B-AA18-422E-AEAF-0556747CF3E7}
+		{34E55F5D-B29A-445F-83D2-8D263A9EDE19} = {DFE3C398-3195-4C99-8198-A98F6EEEAAAA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F52CA357-BE32-4667-8EB3-0654B3279D3D}
