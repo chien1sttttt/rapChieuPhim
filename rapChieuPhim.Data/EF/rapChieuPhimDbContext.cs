@@ -1,9 +1,8 @@
-﻿using eShopSolution.Data.Configurations;
-using eShopSolution.Data.Entities;
+﻿using rapChieuPhim.Data.Configurations;
+using rapChieuPhim.Data.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using rapChieuPhim.Data.Entities;
 using rapChieuPhim.Data.Extensions;
 using System;
 using System.Collections.Generic;
