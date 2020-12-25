@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using rapChieuPhim.Data.EF;
 
 namespace rapChieuPhim.Data.Migrations
 {
     [DbContext(typeof(rapChieuPhimDbContext))]
-    partial class rapChieuPhimDbContextModelSnapshot : ModelSnapshot
+    [Migration("20201225161410_seeddata")]
+    partial class seeddata
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -180,7 +182,7 @@ namespace rapChieuPhim.Data.Migrations
                         new
                         {
                             Id = new Guid("695025d4-e840-421e-ab3f-2fc2e240da61"),
-                            ConcurrencyStamp = "d8543144-c9f9-4604-abdf-69e240b126b6",
+                            ConcurrencyStamp = "8b56103d-06cc-4516-918f-f9c6be1062d3",
                             Description = "Administrator role",
                             Name = "admin",
                             NormalizedName = "admin"
@@ -257,7 +259,7 @@ namespace rapChieuPhim.Data.Migrations
                         {
                             Id = new Guid("5edfca40-c950-4820-883f-310bd37edb54"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "9ffd100a-8e0d-4f9b-a6c4-e4b9a92f9101",
+                            ConcurrencyStamp = "28a5bd83-7794-4542-b010-d586e1e19383",
                             Dob = new DateTime(2020, 12, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "chien1sttttt@gmail.com",
                             EmailConfirmed = true,
@@ -266,7 +268,7 @@ namespace rapChieuPhim.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "chien1sttttt@gmail.com",
                             NormalizedUserName = "chien",
-                            PasswordHash = "AQAAAAEAACcQAAAAEEiv7kI5CsQq1j6Gx+tDBiBERXNNObd/KE4kWXLUsdBy8qjPxJkPT1nGVi4aj2NqsQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEErT0U4wcTgAuwNHU7Y8R9I0GsJMvJ64ZOAD8DXJgqLkXTeLQpS1llVyZfRiRmtXhg==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -517,7 +519,7 @@ namespace rapChieuPhim.Data.Migrations
                     b.Property<DateTime>("OrderDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2020, 12, 25, 23, 14, 56, 157, DateTimeKind.Local).AddTicks(6878));
+                        .HasDefaultValue(new DateTime(2020, 12, 25, 23, 14, 9, 717, DateTimeKind.Local).AddTicks(9906));
 
                     b.Property<string>("ShipAddress")
                         .IsRequired()
@@ -613,7 +615,7 @@ namespace rapChieuPhim.Data.Migrations
                         new
                         {
                             Id = 1,
-                            DateCreated = new DateTime(2020, 12, 25, 23, 14, 56, 194, DateTimeKind.Local).AddTicks(3485),
+                            DateCreated = new DateTime(2020, 12, 25, 23, 14, 9, 761, DateTimeKind.Local).AddTicks(5760),
                             OriginalPrice = 100000m,
                             Price = 200000m,
                             Stock = 0,
