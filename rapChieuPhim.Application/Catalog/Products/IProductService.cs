@@ -1,5 +1,4 @@
-﻿
-using rapChieuPhim.ViewModels.Catalog.Products;
+﻿using rapChieuPhim.ViewModels.Catalog.Products;
 using rapChieuPhim.ViewModels.Common;
 using Microsoft.AspNetCore.Http;
 using System.Collections.Generic;
@@ -8,7 +7,7 @@ using rapChieuPhim.ViewModels.Catalog.ProductImages;
 
 namespace rapChieuPhim.Application.Catalog.Products
 {
-    public interface IManageProductService
+    public interface IProductService
     {
         Task<int> Create(ProductCreateRequest request);
 
@@ -35,5 +34,7 @@ namespace rapChieuPhim.Application.Catalog.Products
         Task<ProductImageViewModel> GetImageById(int imageId);
 
         Task<List<ProductImageViewModel>> GetListImages(int productId);
+
+        Task<PagedResult<ProductViewModel>> GetAllByCategoryId(string languageId, GetPublicProductPagingRequest request);
     }
 }

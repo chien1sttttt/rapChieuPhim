@@ -1,4 +1,5 @@
-﻿using rapChieuPhim.ViewModels.System.Users;
+﻿using rapChieuPhim.ViewModels.Common;
+using rapChieuPhim.ViewModels.System.Users;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -11,5 +12,7 @@ namespace rapChieuPhim.Application.System.Users
         Task<string> Authencate(LoginRequest request);
 
         Task<bool> Register(RegisterRequest request);
+
+        Task<PagedResult<UserVm>> GetUsersPaging(GetUserPagingRequest request);
     }
 }

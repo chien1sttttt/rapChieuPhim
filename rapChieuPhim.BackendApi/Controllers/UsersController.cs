@@ -12,6 +12,7 @@ namespace rapChieuPhim.BackendApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class UsersController : ControllerBase
     {
         private readonly IUserService _userService;
@@ -29,6 +30,7 @@ namespace rapChieuPhim.BackendApi.Controllers
                 return BadRequest(ModelState);
 
             var resultToken = await _userService.Authencate(request);
+
             if (string.IsNullOrEmpty(resultToken))
             {
                 return BadRequest("Username or password is incorrect.");
@@ -36,7 +38,7 @@ namespace rapChieuPhim.BackendApi.Controllers
             return Ok(resultToken);
         }
 
-        [HttpPost("register")]
+        [HttpPost]
         [AllowAnonymous]
         public async Task<IActionResult> Register([FromBody] RegisterRequest request)
         {
@@ -46,9 +48,17 @@ namespace rapChieuPhim.BackendApi.Controllers
             var result = await _userService.Register(request);
             if (!result)
             {
-                return BadRequest("Register is unsuccessful.(Ko thanh cong) ");
+                return BadRequest("Register is unsuccessful.");
             }
             return Ok();
+        }
+
+        //http://localhost/api/users/paging?pageIndex=1&pageSize=10&keyword=
+        [HttpGet("paging")]
+        public async Task<IActionResult> GetAllPaging([FromQuery] GetUserPagingRequest request)
+        {
+            var products = await _userService.GetUsersPaging(request);
+            return Ok(products);
         }
     }
 }
