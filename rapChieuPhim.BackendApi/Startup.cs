@@ -1,7 +1,6 @@
 using rapChieuPhim.Application.System.Users;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -14,14 +13,12 @@ using rapChieuPhim.Application.Common;
 using rapChieuPhim.Data.EF;
 using rapChieuPhim.Data.Entities;
 using rapChieuPhim.Utilities.Constants;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.IdentityModel.Tokens;
 using FluentValidation.AspNetCore;
 using rapChieuPhim.ViewModels.System.Users;
 using rapChieuPhim.Application.System.Roles;
+using rapChieuPhim.Application.System.Languages;
 
 namespace rapChieuPhim.BackendApi
 {
@@ -49,6 +46,7 @@ namespace rapChieuPhim.BackendApi
             services.AddTransient<UserManager<AppUser>, UserManager<AppUser>>();
             services.AddTransient<SignInManager<AppUser>, SignInManager<AppUser>>();
             services.AddTransient<RoleManager<AppRole>, RoleManager<AppRole>>();
+            services.AddTransient<ILanguageService, LanguageService>();
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<IRoleService, RoleService>();
 
