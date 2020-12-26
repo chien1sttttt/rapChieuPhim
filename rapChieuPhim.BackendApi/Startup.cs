@@ -21,6 +21,7 @@ using System.Threading.Tasks;
 using Microsoft.IdentityModel.Tokens;
 using FluentValidation.AspNetCore;
 using rapChieuPhim.ViewModels.System.Users;
+using rapChieuPhim.Application.System.Roles;
 
 namespace rapChieuPhim.BackendApi
 {
@@ -49,6 +50,7 @@ namespace rapChieuPhim.BackendApi
             services.AddTransient<SignInManager<AppUser>, SignInManager<AppUser>>();
             services.AddTransient<RoleManager<AppRole>, RoleManager<AppRole>>();
             services.AddTransient<IUserService, UserService>();
+            services.AddTransient<IRoleService, RoleService>();
 
             services.AddControllers().AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<LoginRequestValidator>());
 
