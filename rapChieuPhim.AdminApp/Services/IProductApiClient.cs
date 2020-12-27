@@ -11,5 +11,7 @@ namespace rapChieuPhim.AdminApp.Services
     public interface IProductApiClient
     {
         Task<PagedResult<ProductVm>> GetPagings(GetManageProductPagingRequest request);
+
+        Task<bool> CreateProduct(ProductCreateRequest request);
     }
 }

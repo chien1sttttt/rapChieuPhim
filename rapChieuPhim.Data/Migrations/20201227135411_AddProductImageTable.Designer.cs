@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using rapChieuPhim.Data.EF;
 
 namespace rapChieuPhim.Data.Migrations
 {
     [DbContext(typeof(rapChieuPhimDbContext))]
-    partial class rapChieuPhimDbContextModelSnapshot : ModelSnapshot
+    [Migration("20201227135411_AddProductImageTable")]
+    partial class AddProductImageTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -138,17 +140,17 @@ namespace rapChieuPhim.Data.Migrations
                         new
                         {
                             Key = "HomeTitle",
-                            Value = "This is home page of rapChieuPhim"
+                            Value = "This is home page of eShopSolution"
                         },
                         new
                         {
                             Key = "HomeKeyword",
-                            Value = "This is keyword of rapChieuPhim"
+                            Value = "This is keyword of eShopSolution"
                         },
                         new
                         {
                             Key = "HomeDescription",
-                            Value = "This is description of rapChieuPhim"
+                            Value = "This is description of eShopSolution"
                         });
                 });
 
@@ -180,7 +182,7 @@ namespace rapChieuPhim.Data.Migrations
                         new
                         {
                             Id = new Guid("695025d4-e840-421e-ab3f-2fc2e240da61"),
-                            ConcurrencyStamp = "8e67e9ef-9494-4b68-88cf-cbf564264128",
+                            ConcurrencyStamp = "aca4438c-3d00-4f91-8d41-5e02bb1c7f88",
                             Description = "Administrator role",
                             Name = "admin",
                             NormalizedName = "admin"
@@ -257,7 +259,7 @@ namespace rapChieuPhim.Data.Migrations
                         {
                             Id = new Guid("5edfca40-c950-4820-883f-310bd37edb54"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "0cc77695-d721-4579-a55b-7439d45b7807",
+                            ConcurrencyStamp = "688f929a-f175-496e-8ba9-dc62b41a562e",
                             Dob = new DateTime(2020, 12, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "chien1sttttt@gmail.com",
                             EmailConfirmed = true,
@@ -266,7 +268,7 @@ namespace rapChieuPhim.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "chien1sttttt@gmail.com",
                             NormalizedUserName = "chien",
-                            PasswordHash = "AQAAAAEAACcQAAAAEPSQEZV4QcP6NuqezeyCV98RcHzx3I8Fu+bE4PkdNiy++VncQWPAYv5YXiKPttrYqA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEMXTH1ooffPeu6NilnVxhHEKEY+6syGYmQQfiBeVF7Qmqzj4hqDaEPhnc49qaPo6Ew==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -517,7 +519,7 @@ namespace rapChieuPhim.Data.Migrations
                     b.Property<DateTime>("OrderDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2020, 12, 27, 20, 55, 5, 275, DateTimeKind.Local).AddTicks(9830));
+                        .HasDefaultValue(new DateTime(2020, 12, 27, 20, 54, 9, 955, DateTimeKind.Local).AddTicks(6539));
 
                     b.Property<string>("ShipAddress")
                         .IsRequired()
@@ -613,7 +615,7 @@ namespace rapChieuPhim.Data.Migrations
                         new
                         {
                             Id = 1,
-                            DateCreated = new DateTime(2020, 12, 27, 20, 55, 5, 336, DateTimeKind.Local).AddTicks(5451),
+                            DateCreated = new DateTime(2020, 12, 27, 20, 54, 10, 4, DateTimeKind.Local).AddTicks(260),
                             OriginalPrice = 100000m,
                             Price = 200000m,
                             Stock = 0,

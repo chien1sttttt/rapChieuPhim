@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using rapChieuPhim.Data.EF;
 
 namespace rapChieuPhim.Data.Migrations
 {
     [DbContext(typeof(rapChieuPhimDbContext))]
-    partial class rapChieuPhimDbContextModelSnapshot : ModelSnapshot
+    [Migration("20201227135507_ChangeFileLengthType")]
+    partial class ChangeFileLengthType
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -138,17 +140,17 @@ namespace rapChieuPhim.Data.Migrations
                         new
                         {
                             Key = "HomeTitle",
-                            Value = "This is home page of rapChieuPhim"
+                            Value = "This is home page of eShopSolution"
                         },
                         new
                         {
                             Key = "HomeKeyword",
-                            Value = "This is keyword of rapChieuPhim"
+                            Value = "This is keyword of eShopSolution"
                         },
                         new
                         {
                             Key = "HomeDescription",
-                            Value = "This is description of rapChieuPhim"
+                            Value = "This is description of eShopSolution"
                         });
                 });
 

@@ -19,6 +19,7 @@ using FluentValidation.AspNetCore;
 using rapChieuPhim.ViewModels.System.Users;
 using rapChieuPhim.Application.System.Roles;
 using rapChieuPhim.Application.System.Languages;
+using rapChieuPhim.Application.Catalog.Categories;
 
 namespace rapChieuPhim.BackendApi
 {
@@ -43,6 +44,7 @@ namespace rapChieuPhim.BackendApi
             //
             services.AddTransient<IStorageService, FileStorageService>();
             services.AddTransient<IProductService, ProductService>();
+            services.AddTransient<ICategoryService, CategoryService>();
             services.AddTransient<UserManager<AppUser>, UserManager<AppUser>>();
             services.AddTransient<SignInManager<AppUser>, SignInManager<AppUser>>();
             services.AddTransient<RoleManager<AppRole>, RoleManager<AppRole>>();

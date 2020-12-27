@@ -2,6 +2,7 @@ using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -42,10 +43,22 @@ namespace rapChieuPhim.AdminApp
             {
                 options.IdleTimeout = TimeSpan.FromMinutes(30);
             });
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddTransient<IUserApiClient, UserApiClient>();
             services.AddTransient<IRoleApiClient, RoleApiClient>();
             services.AddTransient<ILanguageApiClient, LanguageApiClient>();
             services.AddTransient<IProductApiClient, ProductApiClient>();
+            services.AddTransient<ICategoryApiClient, CategoryApiClient>();
+
+            IMvcBuilder builder = services.AddRazorPages();
+            var environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
+
+#if DEBUG
+            if (environment == Environments.Development)
+            {
+                builder.AddRazorRuntimeCompilation();
+            }
+#endif
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
