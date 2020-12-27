@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 using rapChieuPhim.Utilities.Constants;
 using System.Net.Http.Headers;
 using System.IO;
+using Newtonsoft.Json;
+using System.Text;
 
 namespace rapChieuPhim.AdminApp.Services
 {
@@ -77,6 +79,32 @@ namespace rapChieuPhim.AdminApp.Services
                 $"/api/products/paging?pageIndex={request.PageIndex}" +
                 $"&pageSize={request.PageSize}" +
                 $"&keyword={request.Keyword}&languageId={request.LanguageId}&categoryId={request.CategoryId}");
+
+            return data;
+        }
+
+        public async Task<ApiResult<bool>> CategoryAssign(int id, CategoryAssignRequest request)
+        {
+            var client = _httpClientFactory.CreateClient();
+            client.BaseAddress = new Uri(_configuration["BaseAddress"]);
+            var sessions = _httpContextAccessor.HttpContext.Session.GetString("Token");
+
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", sessions);
+
+            var json = JsonConvert.SerializeObject(request);
+            var httpContent = new StringContent(json, Encoding.UTF8, "application/json");
+
+            var response = await client.PutAsync($"/api/products/{id}/categories", httpContent);
+            var result = await response.Content.ReadAsStringAsync();
+            if (response.IsSuccessStatusCode)
+                return JsonConvert.DeserializeObject<ApiSuccessResult<bool>>(result);
+
+            return JsonConvert.DeserializeObject<ApiErrorResult<bool>>(result);
+        }
+
+        public async Task<ProductVm> GetById(int id, string languageId)
+        {
+            var data = await GetAsync<ProductVm>($"/api/products/{id}/{languageId}");
 
             return data;
         }

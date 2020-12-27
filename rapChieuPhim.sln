@@ -26,7 +26,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2.Domain", "2.Domain", "{0E
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.Hosts", "3.Hosts", "{DFE3C398-3195-4C99-8198-A98F6EEEAAAA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "rapChieuPhim.AdminApp", "rapChieuPhim.AdminApp\rapChieuPhim.AdminApp.csproj", "{15EAC126-34B7-497A-9ABB-7A04E5742F19}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "rapChieuPhim.AdminApp", "rapChieuPhim.AdminApp\rapChieuPhim.AdminApp.csproj", "{15EAC126-34B7-497A-9ABB-7A04E5742F19}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "rapChieuPhim.ApiIntegration", "rapChieuPhim.ApiIntegration\rapChieuPhim.ApiIntegration.csproj", "{ACD5967C-6303-4042-A6F1-EFDBF9DBC1DF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -62,6 +64,10 @@ Global
 		{15EAC126-34B7-497A-9ABB-7A04E5742F19}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{15EAC126-34B7-497A-9ABB-7A04E5742F19}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{15EAC126-34B7-497A-9ABB-7A04E5742F19}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ACD5967C-6303-4042-A6F1-EFDBF9DBC1DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACD5967C-6303-4042-A6F1-EFDBF9DBC1DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACD5967C-6303-4042-A6F1-EFDBF9DBC1DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACD5967C-6303-4042-A6F1-EFDBF9DBC1DF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -74,6 +80,7 @@ Global
 		{3B3135C1-4A51-446D-BD55-E993C3A38165} = {FABE5C9B-AA18-422E-AEAF-0556747CF3E7}
 		{34E55F5D-B29A-445F-83D2-8D263A9EDE19} = {DFE3C398-3195-4C99-8198-A98F6EEEAAAA}
 		{15EAC126-34B7-497A-9ABB-7A04E5742F19} = {DFE3C398-3195-4C99-8198-A98F6EEEAAAA}
+		{ACD5967C-6303-4042-A6F1-EFDBF9DBC1DF} = {DFE3C398-3195-4C99-8198-A98F6EEEAAAA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F52CA357-BE32-4667-8EB3-0654B3279D3D}
