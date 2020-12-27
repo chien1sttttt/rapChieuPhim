@@ -11,7 +11,7 @@ using rapChieuPhim.ViewModels.Common;
 using System.Net.Http.Headers;
 using Microsoft.AspNetCore.Http;
 
-namespace rapChieuPhim.AdminApp.Services
+namespace rapChieuPhim.ApiIntegration
 {
     public class UserApiClient : IUserApiClient
     {

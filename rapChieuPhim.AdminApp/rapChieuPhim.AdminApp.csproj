@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\rapChieuPhim.ApiIntegration\rapChieuPhim.ApiIntegration.csproj" />
     <ProjectReference Include="..\rapChieuPhim.Utilities\rapChieuPhim.Utilities.csproj" />
     <ProjectReference Include="..\rapChieuPhim.ViewModel\rapChieuPhim.ViewModels.csproj" />
   </ItemGroup>

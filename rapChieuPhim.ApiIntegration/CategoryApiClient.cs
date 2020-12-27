@@ -8,7 +8,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace rapChieuPhim.AdminApp.Services
+namespace rapChieuPhim.ApiIntegration
 {
     public class CategoryApiClient : BaseApiClient, ICategoryApiClient
     {

@@ -1,5 +1,5 @@
 ﻿using rapChieuPhim.AdminApp.Models;
-using rapChieuPhim.AdminApp.Services;
+using rapChieuPhim.ApiIntegration;
 using rapChieuPhim.Utilities.Constants;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;

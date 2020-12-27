@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Configuration;
-using rapChieuPhim.AdminApp.Services;
+using rapChieuPhim.ApiIntegration;
 using rapChieuPhim.Utilities.Constants;
 using rapChieuPhim.ViewModels.Catalog.Products;
 using rapChieuPhim.ViewModels.Common;

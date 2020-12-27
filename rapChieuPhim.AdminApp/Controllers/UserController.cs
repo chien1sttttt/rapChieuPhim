@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Logging;
 using Microsoft.IdentityModel.Tokens;
-using rapChieuPhim.AdminApp.Services;
+using rapChieuPhim.ApiIntegration;
 using rapChieuPhim.ViewModels.Common;
 using rapChieuPhim.ViewModels.System.Users;
 using System;

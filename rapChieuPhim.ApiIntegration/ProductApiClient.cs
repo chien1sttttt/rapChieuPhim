@@ -13,7 +13,7 @@ using System.IO;
 using Newtonsoft.Json;
 using System.Text;
 
-namespace rapChieuPhim.AdminApp.Services
+namespace rapChieuPhim.ApiIntegration
 {
     public class ProductApiClient : BaseApiClient, IProductApiClient
     {
