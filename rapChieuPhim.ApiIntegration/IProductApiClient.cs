@@ -14,8 +14,14 @@ namespace rapChieuPhim.ApiIntegration
 
         Task<bool> CreateProduct(ProductCreateRequest request);
 
+        Task<bool> UpdateProduct(ProductUpdateRequest request);
+
         Task<ApiResult<bool>> CategoryAssign(int id, CategoryAssignRequest request);
 
         Task<ProductVm> GetById(int id, string languageId);
+
+        Task<List<ProductVm>> GetFeaturedProducts(string languageId, int take);
+
+        Task<List<ProductVm>> GetLatestProducts(string languageId, int take);
     }
 }
