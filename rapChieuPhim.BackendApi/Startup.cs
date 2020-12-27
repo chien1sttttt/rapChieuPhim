@@ -20,6 +20,7 @@ using rapChieuPhim.ViewModels.System.Users;
 using rapChieuPhim.Application.System.Roles;
 using rapChieuPhim.Application.System.Languages;
 using rapChieuPhim.Application.Catalog.Categories;
+using rapChieuPhim.Application.Utilities.Slides;
 
 namespace rapChieuPhim.BackendApi
 {
@@ -51,6 +52,7 @@ namespace rapChieuPhim.BackendApi
             services.AddTransient<ILanguageService, LanguageService>();
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<IRoleService, RoleService>();
+            services.AddTransient<ISlideService, SlideService>();
 
             services.AddControllers().AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<LoginRequestValidator>());
 

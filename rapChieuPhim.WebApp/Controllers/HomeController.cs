@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using rapChieuPhim.ApiIntegration;
 using rapChieuPhim.WebApp.Models;
 using System;
 using System.Collections.Generic;
@@ -13,14 +14,21 @@ namespace rapChieuPhim.WebApp.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        private readonly ISlideApiClient _slideApiClient;
+
+        public HomeController(ILogger<HomeController> logger, ISlideApiClient slideApiClient)
         {
             _logger = logger;
+            _slideApiClient = slideApiClient;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var viewModel = new HomeViewModel
+            {
+                Slides = await _slideApiClient.GetAll()
+            };
+            return View(viewModel);
         }
 
         public IActionResult Privacy()
